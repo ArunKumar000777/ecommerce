@@ -4,27 +4,11 @@ import { useState } from "react";
 import styled from "styled-components";
 import { popularProducts } from "../data";
 import Product from "./Product";
-import axios from "axios";
 import { publicRequest } from "../requestMethods";
 const Products = ({ cat, filters, sort }) => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    // console.log(cat);
-    // useEffect(() => {
-    //     const getProducts = async () => {
-    //         try {
-    //             const res = await axios.get(
-    //                 cat ? `http://localhost:5000/api/products?category=${cat}` : "http://localhost:5000/api/products "
-    //             );
-    //             console.log(res);
-    //             setProducts(res.data);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     };
-
-    //     getProducts();
-    // }, [cat]);
+  
     useEffect(() => {
         const getProducts = async () => {
             try {
@@ -41,9 +25,7 @@ const Products = ({ cat, filters, sort }) => {
         getProducts();
     }, [cat]);
 
-    // console.log(`products, ${products}`);
-    // console.log(products);
-    // console.log(filteredProducts);
+  
 
     useEffect(() => {
         cat &&
