@@ -120,7 +120,6 @@ const Product = () => {
     const dispatch = useDispatch();
 
 
-    console.log(size)
     useEffect(() => {
         const getProduct = async () => {
             try {
