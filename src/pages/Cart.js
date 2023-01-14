@@ -9,8 +9,8 @@ import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 
 import { userRequest, publicRequest } from "../requestMethods";
-import { useNavigate } from "react-router-dom";
-import { increaseQuantity, clearCart, decreaseQuantity ,removeItemFromCart} from "../redux/cartRedux";
+import { Link, useNavigate } from "react-router-dom";
+import { increaseQuantity, clearCart, decreaseQuantity, removeItemFromCart } from "../redux/cartRedux";
 
 const KEY = process.env.REACT_APP_STRIPE;
 // console.log(KEY)
@@ -216,7 +216,9 @@ const Cart = () => {
             <Wrapper>
                 <Title>YOUR BAG</Title>
                 <Top>
-                    <TopButton>CONTINUE SHOPPING</TopButton>
+                    <Link to={'/'}>
+                        <TopButton>CONTINUE SHOPPING</TopButton>
+                    </Link>
                     <TopTexts>
                         <TopText>Shopping Bab(2)</TopText>
                         <TopText>Your Wishlist</TopText>
@@ -270,7 +272,9 @@ const Cart = () => {
                                         />
                                     </ProductAmountContainer>
                                     <ProductPrice>$ {product.price * product.quantity}</ProductPrice>
-                                    <RemoveItem onClick={()=>dispatch(removeItemFromCart({id: product._id}))}>remove</RemoveItem>
+                                    <RemoveItem onClick={() => dispatch(removeItemFromCart({ id: product._id }))}>
+                                        remove
+                                    </RemoveItem>
                                 </PriceDetail>
                             </Product>
                         ))}
